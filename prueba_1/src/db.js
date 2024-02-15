@@ -13,4 +13,20 @@ taskModel(sequelize);
 
 const { Proyect, Task } = sequelize.models;
 
+//* un proyecto tiene muchas tareas
+//* tambien se le puede poner un objeto especificando donde es que se va a crear la relacion
+Proyect.hasMany(Task, {
+  //* nombre de la columna a crear
+  foreignKey: "proyectId",
+  //* a donde lo va a enlazar
+  sourceKey: "id",
+});
+
+Task.belongsTo(Proyect, {
+  //* nombre de la columna a crear
+  foreignKey: "proyectId",
+  //* enlasando a la tabla padre
+  targetId: "id",
+});
+
 module.exports = { ...sequelize.models, sequelize };
