@@ -14,7 +14,7 @@ module.exports = (sequelize) =>
       },
       done: {
         type: DataTypes.BOOLEAN,
-        defaulValue: false,
+        defaultValue: false,
       },
     },
     {
