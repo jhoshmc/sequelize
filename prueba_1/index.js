@@ -1,18 +1,13 @@
 require("dotenv").config();
-const express = require("express");
-const morgan = require("morgan");
+const server = require("./server");
 const { sequelize } = require("./src/db");
 const PORT = process.env.PORT;
-const server = express();
-
-server.use(express.json());
-// server.use(morgan());
 
 async function main() {
   try {
     server.listen(PORT, () => {
       console.log(`servidor conectado en: ${PORT}`);
-      sequelize.sync({ force: true });
+      sequelize.sync({ force: false });
     });
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
