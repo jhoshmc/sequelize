@@ -7,7 +7,7 @@ async function main() {
   try {
     server.listen(PORT, () => {
       console.log("se inicializo en el puerto: " + PORT);
-      sequelize.sync({ force: true });
+      sequelize.sync({ force: false });
     });
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
