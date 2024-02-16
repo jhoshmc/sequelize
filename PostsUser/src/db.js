@@ -14,6 +14,14 @@ const sequelize = new Sequelize(
 UserModel(sequelize);
 PostModel(sequelize);
 
+// asociacion
+const { User, Post } = sequelize.models;
+
+User.hasMany(Post);
+
+Post.belongsTo(User);
+
 module.exports = {
+  ...sequelize.models,
   sequelize,
 };
