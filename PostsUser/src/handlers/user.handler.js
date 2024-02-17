@@ -1,10 +1,10 @@
-const { User } = require("../db");
+const { User, Post } = require("../db");
 
 const getUsers = async (req, res) => {
   try {
     const { id } = req.params;
     if (id) {
-      const post = await User.findByPk(id);
+      const post = await User.findByPk(id, { include: { model: Post } });
       if (!post) return res.status(400).send("usuario no encontrado");
       return res.status(200).json(post);
     }
