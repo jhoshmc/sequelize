@@ -2,6 +2,12 @@ const { User } = require("../db");
 
 const getUsers = async (req, res) => {
   try {
+    const { id } = req.params;
+    if (id) {
+      const post = await User.findByPk(id);
+      if (!post) return res.status(400).send("usuario no encontrado");
+      return res.status(200).json(post);
+    }
     const allUsers = await User.findAll();
     res.status(200).json(allUsers);
   } catch (error) {
