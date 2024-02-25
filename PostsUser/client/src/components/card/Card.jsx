@@ -13,7 +13,7 @@ const Card = ({ post, users }) => {
   // console.log(found);
 
   return (
-    <div className="card flex flex-col lg:flex-row mx-10 md:mx-20 lg:mx-52 rounded-lg">
+    <div className="card bg-stone-400 flex flex-col lg:flex-row mx-10 md:mx-20 lg:mx-52 rounded-lg my-8 ">
       {!image ? "" : <img src={image} alt="nombre" height="300" width="400" />}
       <div className="card-details flex flex-col justify-between">
         <div className="top flex flex-row justify-between mx-4 font-semibold text-gray-500">
