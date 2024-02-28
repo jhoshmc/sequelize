@@ -5,6 +5,7 @@ import "./App.css";
 import CreateUser from "./components/CreateUser";
 import { useLocation } from "react-router-dom";
 import NavBar from "./components/nav/NavBar";
+import CreatePost from "./components/post/CreatePost";
 function App() {
   const { pathname } = useLocation();
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<CreateUser />} />
+        <Route path="/post" element={<CreatePost />} />
       </Routes>
     </div>
   );
